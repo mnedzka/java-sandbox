@@ -19,7 +19,7 @@ public class Cinema {
     }
 
     public void setTotal() {
-        switch (movie) {
+        switch (movie.toLowerCase()) {
             case "comedy":
                 total = comedyMoviePrice * tickets;
                 break;
@@ -34,4 +34,6 @@ public class Cinema {
     public String ifCanGoToCinema() {
         return budget <= total ? "You don't have enough budget" : "You bought " + tickets + " tickets for " + movie + " film with total price " + total + ".";
     }
+
+
 }
