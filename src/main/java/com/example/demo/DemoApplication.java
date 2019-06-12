@@ -6,9 +6,20 @@ import java.util.Scanner;
 public class DemoApplication {
 
     public static void main(String[] args) {
+        String imie;
+        String nazwisko;
+        int wiek;
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What budget do you have?");
+        System.out.println("Give a name for Your Sim:");
+        imie = scan.nextLine();
+        System.out.println("Podaj nazwisko sima:");
+        nazwisko = scan.nextLine();
+        System.out.println("Podaj wiek sima:");
+        wiek = scan.nextInt();
+        Sim sim = new Sim(wiek, nazwisko, imie);
+        System.out.println("Hi " + sim.firstName + " " + sim.surname);
+        System.out.println(sim.firstName + " what budget do you have?");
         double budget = scan.nextDouble();
         System.out.println("Do you want to go to cinema for comedy,horror or other?(true, false)");
         if (doYouWannaGo(scan)) {
@@ -26,11 +37,12 @@ public class DemoApplication {
         }
     }
 
+
+
     private static boolean doYouWannaGo(Scanner scan) {
         boolean doYouWannaGo;
         try {
             doYouWannaGo = scan.nextBoolean();
-
         } catch (InputMismatchException e) {
             System.out.println("Please answer: true or false");
             scan.next();
